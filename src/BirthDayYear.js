@@ -34,16 +34,18 @@ class BirthDayYear {
   }
 
   get getYear() {
-    if (
-      this.getMonth <= new Date().getMonth() + 1 &&
-      this.getDay < new Date().getDate()
-    ) {
-      return new Date().getFullYear() - this.getAge - 1;
+    const currentYear = new Date().getFullYear();
+    const currentMonth = new Date().getMonth();
+    const currentDay = new Date().getDate();
+
+    if (this.getMonth <= currentMonth + 1 && this.getDay < currentDay) {
+      return currentYear - this.getAge - 1;
     } else {
-      if (this.getDay <= 30) {
-        return new Date().getFullYear() - this.getAge - 1;
+      const daysOfMonth = new Date(currentYear, currentMonth, 0).getDate();
+      if (this.getDay <= daysOfMonth) {
+        return currentYear - this.getAge - 1;
       } else {
-        return new Date().getFullYear() - this.getAge;
+        return currentYear - this.getAge;
       }
     }
   }
