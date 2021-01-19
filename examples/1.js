@@ -1,4 +1,4 @@
-const BirthDayYear = require("./src/BirthDayYear");
+const BirthDayYear = require("../src/BirthDayYear");
 
 BirthDayYear.setDay = 1;
 BirthDayYear.setMonth = 1;

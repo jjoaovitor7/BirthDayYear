@@ -45,7 +45,11 @@ class BirthDayYear {
       if (this.getDay <= daysOfMonth) {
         return currentYear - this.getAge - 1;
       } else {
-        return currentYear - this.getAge;
+        // throw "Não é possível ter um dia maior do que a quantidade de dias do mês atual.";
+        console.log(
+          "Não é possível ter um dia maior do que a quantidade de dias do mês atual."
+        );
+        return 0;
       }
     }
   }
