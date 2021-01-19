@@ -14,7 +14,9 @@ class BirthDayYear {
   }
 
   set setDay(value) {
-    this.#day = value;
+    if (value > 0) {
+      this.#day = value;
+    }
   }
 
   get getMonth() {
@@ -22,7 +24,9 @@ class BirthDayYear {
   }
 
   set setMonth(value) {
-    this.#month = value;
+    if (value > 0) {
+      this.#month = value;
+    }
   }
 
   get getAge() {
@@ -30,7 +34,9 @@ class BirthDayYear {
   }
 
   set setAge(value) {
-    this.#age = value;
+    if (value > 0) {
+      this.#age = value;
+    }
   }
 
   get getYear() {
@@ -38,18 +44,25 @@ class BirthDayYear {
     const currentMonth = new Date().getMonth();
     const currentDay = new Date().getDate();
 
-    if (this.getMonth <= currentMonth + 1 && this.getDay < currentDay) {
-      return currentYear - this.getAge - 1;
+    if (
+      this.getMonth == undefined ||
+      this.getDay == undefined ||
+      this.getAge == undefined
+    ) {
+      console.log("Um dos atributos (dia, mês e idade) não foi definido.");
+      return 0;
     } else {
-      const daysOfMonth = new Date(currentYear, currentMonth, 0).getDate();
-      if (this.getDay <= daysOfMonth) {
+      if (this.getMonth <= currentMonth + 1 && this.getDay < currentDay) {
         return currentYear - this.getAge - 1;
       } else {
-        // throw "Não é possível ter um dia maior do que a quantidade de dias do mês atual.";
-        console.log(
-          "Não é possível ter um dia maior do que a quantidade de dias do mês atual."
-        );
-        return 0;
+        const daysOfMonth = new Date(currentYear, currentMonth, 0).getDate();
+        if (this.getDay <= daysOfMonth) {
+          return currentYear - this.getAge - 1;
+        } else {
+          // throw "Error.";
+          console.log("Error.");
+          return 0;
+        }
       }
     }
   }
