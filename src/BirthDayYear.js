@@ -3,6 +3,12 @@ class BirthDayYear {
   #day;
   #month;
 
+  // constructor(day, month, age) {
+  //   this.#day = day;
+  //   this.#month = month;
+  //   this.#age = age;
+  // }
+
   get getDay() {
     return this.#day;
   }
